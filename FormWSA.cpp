@@ -18,11 +18,12 @@ Project3WSA::FormWSA::FormWSA(void)
 	InitializeComponent();
 }
 
-void Project3WSA::FormWSA::PrintPlot(double &compassAngle)
+void Project3WSA::FormWSA::PrintPlot()
 {
 	double x = 0, y = 0;
 	int n = 0;
 	double column1, column2, column3;
+	double compassAngle;
 
 	std::fstream DATA;
 	std::string line;
@@ -44,6 +45,8 @@ void Project3WSA::FormWSA::PrintPlot(double &compassAngle)
 	while (std::getline(DATA, line)) {
 		std::istringstream iss(line);
 
+		chartDATA->Refresh();
+		
 		iss >> column1 >> column2 >> column3;
 
 		if (radioButtonR->Checked == true)
@@ -58,9 +61,14 @@ void Project3WSA::FormWSA::PrintPlot(double &compassAngle)
 		x += 0.04;
 
 		plot->Points->AddXY(x, y);
-	}
 
-	compassAngle += column3 * (M_PI / 180);
+		compassAngle = column3 * (M_PI / 180);
+
+		PrintCompass(compassAngle);
+		System::Threading::Thread::Sleep(40);
+
+		//predkosc rysowania!
+	}
 
 	DATA.close();
 }
@@ -74,8 +82,8 @@ void Project3WSA::FormWSA::PrintCompass(double compassAngle)
 
 	pictureBoxCompass->Refresh();
 
-	xc = (65 + 65 * sin(compassAngle));
-	yc = (65 - 65 * cos(compassAngle));
+	xc = 65 + 65 * sin(compassAngle);
+	yc = 65 - 65 * cos(compassAngle);
 	
 	needle->DrawLine(redPen, 65, 65, xc, yc);
 }
@@ -95,10 +103,7 @@ System::Void Project3WSA::FormWSA::aboutMenuItem_Click(System::Object^ sender, S
 
 System::Void Project3WSA::FormWSA::buttonPrint_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	double compassAngle;
-
-	PrintPlot(compassAngle);
-	PrintCompass(compassAngle);
+	PrintPlot();
 
 	return System::Void();
 }

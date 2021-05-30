@@ -139,7 +139,7 @@ namespace Project3WSA {
 			// 
 			this->labelEast->AutoSize = true;
 			this->labelEast->BackColor = System::Drawing::SystemColors::Control;
-			this->labelEast->Location = System::Drawing::Point(867, 173);
+			this->labelEast->Location = System::Drawing::Point(868, 173);
 			this->labelEast->Name = L"labelEast";
 			this->labelEast->Size = System::Drawing::Size(14, 13);
 			this->labelEast->TabIndex = 21;
@@ -149,7 +149,7 @@ namespace Project3WSA {
 			// 
 			this->labelSouth->AutoSize = true;
 			this->labelSouth->BackColor = System::Drawing::SystemColors::Control;
-			this->labelSouth->Location = System::Drawing::Point(795, 246);
+			this->labelSouth->Location = System::Drawing::Point(795, 248);
 			this->labelSouth->Name = L"labelSouth";
 			this->labelSouth->Size = System::Drawing::Size(14, 13);
 			this->labelSouth->TabIndex = 20;
@@ -168,15 +168,19 @@ namespace Project3WSA {
 			// labelDirection
 			// 
 			this->labelDirection->AutoSize = true;
-			this->labelDirection->Location = System::Drawing::Point(741, 259);
+			this->labelDirection->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labelDirection->Location = System::Drawing::Point(725, 261);
 			this->labelDirection->Name = L"labelDirection";
-			this->labelDirection->Size = System::Drawing::Size(125, 13);
+			this->labelDirection->Size = System::Drawing::Size(149, 13);
 			this->labelDirection->TabIndex = 18;
 			this->labelDirection->Text = L"Aktualny kierunek robota";
 			// 
 			// labelSamples
 			// 
 			this->labelSamples->AutoSize = true;
+			this->labelSamples->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->labelSamples->Location = System::Drawing::Point(278, 445);
 			this->labelSamples->Name = L"labelSamples";
 			this->labelSamples->Size = System::Drawing::Size(158, 13);
@@ -193,10 +197,10 @@ namespace Project3WSA {
 			// 
 			// pictureBoxCompass
 			// 
-			this->pictureBoxCompass->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->pictureBoxCompass->BackColor = System::Drawing::SystemColors::Control;
 			this->pictureBoxCompass->Location = System::Drawing::Point(736, 115);
 			this->pictureBoxCompass->Name = L"pictureBoxCompass";
-			this->pictureBoxCompass->Size = System::Drawing::Size(130, 130);
+			this->pictureBoxCompass->Size = System::Drawing::Size(131, 131);
 			this->pictureBoxCompass->TabIndex = 15;
 			this->pictureBoxCompass->TabStop = false;
 			this->pictureBoxCompass->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &FormWSA::pictureBoxCompass_Paint);
@@ -259,6 +263,8 @@ namespace Project3WSA {
 			// groupBoxWykres
 			// 
 			this->groupBoxWykres->Controls->Add(this->chartDATA);
+			this->groupBoxWykres->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->groupBoxWykres->Location = System::Drawing::Point(12, 27);
 			this->groupBoxWykres->Name = L"groupBoxWykres";
 			this->groupBoxWykres->Size = System::Drawing::Size(694, 321);
@@ -268,6 +274,7 @@ namespace Project3WSA {
 			// 
 			// chartDATA
 			// 
+			this->chartDATA->BackColor = System::Drawing::Color::Transparent;
 			chartArea1->AxisX->ArrowStyle = System::Windows::Forms::DataVisualization::Charting::AxisArrowStyle::Triangle;
 			chartArea1->AxisX->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
 			chartArea1->AxisX->Title = L"Czas t [s]";
@@ -288,6 +295,7 @@ namespace Project3WSA {
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series1->IsVisibleInLegend = false;
 			series1->Legend = L"Legend1";
+			series1->LegendText = L"Robot";
 			series1->Name = L"Series1";
 			series1->XValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
 			series1->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
@@ -335,7 +343,7 @@ namespace Project3WSA {
 	//private: double column1, column2, column3;
 	//private: double compassAngle;
 
-	private: void PrintPlot(double &compassAngle);
+	private: void PrintPlot();
 	private: void PrintCompass(double compassAngle);
 
 	private: System::Void exitMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
