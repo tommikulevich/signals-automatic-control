@@ -107,7 +107,7 @@ namespace Project3WSA {
 			this->menuStrip->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) { this->aboutMenuItem, this->exitMenuItem });
 			this->menuStrip->Location = System::Drawing::Point(0, 0);
 			this->menuStrip->Name = L"menuStrip";
-			this->menuStrip->Size = System::Drawing::Size(715, 24);
+			this->menuStrip->Size = System::Drawing::Size(894, 24);
 			this->menuStrip->TabIndex = 0;
 			this->menuStrip->Text = L"menuStrip";
 			// 
@@ -129,7 +129,7 @@ namespace Project3WSA {
 			// 
 			this->labelWest->AutoSize = true;
 			this->labelWest->BackColor = System::Drawing::SystemColors::Control;
-			this->labelWest->Location = System::Drawing::Point(519, 139);
+			this->labelWest->Location = System::Drawing::Point(717, 173);
 			this->labelWest->Name = L"labelWest";
 			this->labelWest->Size = System::Drawing::Size(18, 13);
 			this->labelWest->TabIndex = 22;
@@ -139,7 +139,7 @@ namespace Project3WSA {
 			// 
 			this->labelEast->AutoSize = true;
 			this->labelEast->BackColor = System::Drawing::SystemColors::Control;
-			this->labelEast->Location = System::Drawing::Point(669, 139);
+			this->labelEast->Location = System::Drawing::Point(867, 173);
 			this->labelEast->Name = L"labelEast";
 			this->labelEast->Size = System::Drawing::Size(14, 13);
 			this->labelEast->TabIndex = 21;
@@ -149,7 +149,7 @@ namespace Project3WSA {
 			// 
 			this->labelSouth->AutoSize = true;
 			this->labelSouth->BackColor = System::Drawing::SystemColors::Control;
-			this->labelSouth->Location = System::Drawing::Point(597, 212);
+			this->labelSouth->Location = System::Drawing::Point(795, 246);
 			this->labelSouth->Name = L"labelSouth";
 			this->labelSouth->Size = System::Drawing::Size(14, 13);
 			this->labelSouth->TabIndex = 20;
@@ -159,7 +159,7 @@ namespace Project3WSA {
 			// 
 			this->labelNorth->AutoSize = true;
 			this->labelNorth->BackColor = System::Drawing::SystemColors::Control;
-			this->labelNorth->Location = System::Drawing::Point(597, 65);
+			this->labelNorth->Location = System::Drawing::Point(795, 99);
 			this->labelNorth->Name = L"labelNorth";
 			this->labelNorth->Size = System::Drawing::Size(15, 13);
 			this->labelNorth->TabIndex = 19;
@@ -168,7 +168,7 @@ namespace Project3WSA {
 			// labelDirection
 			// 
 			this->labelDirection->AutoSize = true;
-			this->labelDirection->Location = System::Drawing::Point(543, 225);
+			this->labelDirection->Location = System::Drawing::Point(741, 259);
 			this->labelDirection->Name = L"labelDirection";
 			this->labelDirection->Size = System::Drawing::Size(125, 13);
 			this->labelDirection->TabIndex = 18;
@@ -177,7 +177,7 @@ namespace Project3WSA {
 			// labelSamples
 			// 
 			this->labelSamples->AutoSize = true;
-			this->labelSamples->Location = System::Drawing::Point(138, 365);
+			this->labelSamples->Location = System::Drawing::Point(278, 445);
 			this->labelSamples->Name = L"labelSamples";
 			this->labelSamples->Size = System::Drawing::Size(158, 13);
 			this->labelSamples->TabIndex = 17;
@@ -185,7 +185,7 @@ namespace Project3WSA {
 			// 
 			// textBoxSamples
 			// 
-			this->textBoxSamples->Location = System::Drawing::Point(302, 362);
+			this->textBoxSamples->Location = System::Drawing::Point(442, 442);
 			this->textBoxSamples->Name = L"textBoxSamples";
 			this->textBoxSamples->Size = System::Drawing::Size(39, 20);
 			this->textBoxSamples->TabIndex = 16;
@@ -194,7 +194,7 @@ namespace Project3WSA {
 			// pictureBoxCompass
 			// 
 			this->pictureBoxCompass->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->pictureBoxCompass->Location = System::Drawing::Point(538, 81);
+			this->pictureBoxCompass->Location = System::Drawing::Point(736, 115);
 			this->pictureBoxCompass->Name = L"pictureBoxCompass";
 			this->pictureBoxCompass->Size = System::Drawing::Size(130, 130);
 			this->pictureBoxCompass->TabIndex = 15;
@@ -206,7 +206,7 @@ namespace Project3WSA {
 			this->groupBoxOY->Controls->Add(this->radioButtonY);
 			this->groupBoxOY->Controls->Add(this->radioButtonP);
 			this->groupBoxOY->Controls->Add(this->radioButtonR);
-			this->groupBoxOY->Location = System::Drawing::Point(109, 307);
+			this->groupBoxOY->Location = System::Drawing::Point(237, 383);
 			this->groupBoxOY->Name = L"groupBoxOY";
 			this->groupBoxOY->Size = System::Drawing::Size(284, 49);
 			this->groupBoxOY->TabIndex = 13;
@@ -248,7 +248,7 @@ namespace Project3WSA {
 			// 
 			// buttonPrint
 			// 
-			this->buttonPrint->Location = System::Drawing::Point(170, 278);
+			this->buttonPrint->Location = System::Drawing::Point(298, 354);
 			this->buttonPrint->Name = L"buttonPrint";
 			this->buttonPrint->Size = System::Drawing::Size(171, 23);
 			this->buttonPrint->TabIndex = 12;
@@ -261,20 +261,30 @@ namespace Project3WSA {
 			this->groupBoxWykres->Controls->Add(this->chartDATA);
 			this->groupBoxWykres->Location = System::Drawing::Point(12, 27);
 			this->groupBoxWykres->Name = L"groupBoxWykres";
-			this->groupBoxWykres->Size = System::Drawing::Size(470, 245);
+			this->groupBoxWykres->Size = System::Drawing::Size(694, 321);
 			this->groupBoxWykres->TabIndex = 23;
 			this->groupBoxWykres->TabStop = false;
 			this->groupBoxWykres->Text = L"Wykres";
 			// 
 			// chartDATA
 			// 
-			chartArea1->Name = L"ChartArea1";
+			chartArea1->AxisX->ArrowStyle = System::Windows::Forms::DataVisualization::Charting::AxisArrowStyle::Triangle;
+			chartArea1->AxisX->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
+			chartArea1->AxisX->Title = L"Czas t [s]";
+			chartArea1->AxisX->TitleFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			chartArea1->AxisY->ArrowStyle = System::Windows::Forms::DataVisualization::Charting::AxisArrowStyle::Triangle;
+			chartArea1->AxisY->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
+			chartArea1->AxisY->Title = L"Położenie kątowe [stopnie]";
+			chartArea1->AxisY->TitleFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			chartArea1->Name = L"ChartArea";
 			this->chartDATA->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chartDATA->Legends->Add(legend1);
 			this->chartDATA->Location = System::Drawing::Point(7, 20);
 			this->chartDATA->Name = L"chartDATA";
-			series1->ChartArea = L"ChartArea1";
+			series1->ChartArea = L"ChartArea";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series1->IsVisibleInLegend = false;
 			series1->Legend = L"Legend1";
@@ -282,7 +292,7 @@ namespace Project3WSA {
 			series1->XValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
 			series1->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
 			this->chartDATA->Series->Add(series1);
-			this->chartDATA->Size = System::Drawing::Size(457, 219);
+			this->chartDATA->Size = System::Drawing::Size(681, 295);
 			this->chartDATA->TabIndex = 0;
 			this->chartDATA->Text = L"Wykres";
 			// 
@@ -290,7 +300,7 @@ namespace Project3WSA {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(715, 420);
+			this->ClientSize = System::Drawing::Size(894, 503);
 			this->Controls->Add(this->groupBoxWykres);
 			this->Controls->Add(this->labelWest);
 			this->Controls->Add(this->labelEast);

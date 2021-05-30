@@ -20,7 +20,7 @@ Project3WSA::FormWSA::FormWSA(void)
 
 void Project3WSA::FormWSA::PrintPlot(double &compassAngle)
 {
-	double x, y;
+	double x = 0, y = 0;
 	int n = 0;
 	double column1, column2, column3;
 
@@ -40,8 +40,6 @@ void Project3WSA::FormWSA::PrintPlot(double &compassAngle)
 		MessageBox::Show("Bledne dane! Nie udalo sie usunac prob!", "Blad", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 		textBoxSamples->Text = "0";
 	}
-
-	x = 0.04 * n;
 
 	while (std::getline(DATA, line)) {
 		std::istringstream iss(line);
@@ -74,9 +72,11 @@ void Project3WSA::FormWSA::PrintCompass(double compassAngle)
 	Pen^ redPen = gcnew Pen(Color::Red, 2.0F);
 	Graphics^ needle = this->pictureBoxCompass->CreateGraphics();
 
+	pictureBoxCompass->Refresh();
+
 	xc = (65 + 65 * sin(compassAngle));
 	yc = (65 - 65 * cos(compassAngle));
-
+	
 	needle->DrawLine(redPen, 65, 65, xc, yc);
 }
 
