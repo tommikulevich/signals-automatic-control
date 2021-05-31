@@ -59,6 +59,7 @@ namespace Project3WSA {
 	private: System::Windows::Forms::Button^ buttonPrint;
 	private: System::Windows::Forms::GroupBox^ groupBoxWykres;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartDATA;
+	private: System::Windows::Forms::RadioButton^ radioButtonAll;
 
 
 	private:
@@ -77,6 +78,8 @@ namespace Project3WSA {
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->menuStrip = (gcnew System::Windows::Forms::MenuStrip());
 			this->aboutMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exitMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -89,6 +92,7 @@ namespace Project3WSA {
 			this->textBoxSamples = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBoxCompass = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBoxOY = (gcnew System::Windows::Forms::GroupBox());
+			this->radioButtonAll = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButtonY = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButtonP = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButtonR = (gcnew System::Windows::Forms::RadioButton());
@@ -207,24 +211,36 @@ namespace Project3WSA {
 			// 
 			// groupBoxOY
 			// 
+			this->groupBoxOY->Controls->Add(this->radioButtonAll);
 			this->groupBoxOY->Controls->Add(this->radioButtonY);
 			this->groupBoxOY->Controls->Add(this->radioButtonP);
 			this->groupBoxOY->Controls->Add(this->radioButtonR);
-			this->groupBoxOY->Location = System::Drawing::Point(237, 383);
+			this->groupBoxOY->Location = System::Drawing::Point(196, 383);
 			this->groupBoxOY->Name = L"groupBoxOY";
-			this->groupBoxOY->Size = System::Drawing::Size(284, 49);
+			this->groupBoxOY->Size = System::Drawing::Size(375, 49);
 			this->groupBoxOY->TabIndex = 13;
 			this->groupBoxOY->TabStop = false;
 			this->groupBoxOY->Text = L"OY:";
 			// 
+			// radioButtonAll
+			// 
+			this->radioButtonAll->AutoSize = true;
+			this->radioButtonAll->Checked = true;
+			this->radioButtonAll->Location = System::Drawing::Point(308, 20);
+			this->radioButtonAll->Name = L"radioButtonAll";
+			this->radioButtonAll->Size = System::Drawing::Size(36, 17);
+			this->radioButtonAll->TabIndex = 3;
+			this->radioButtonAll->TabStop = true;
+			this->radioButtonAll->Text = L"All";
+			this->radioButtonAll->UseVisualStyleBackColor = true;
+			// 
 			// radioButtonY
 			// 
 			this->radioButtonY->AutoSize = true;
-			this->radioButtonY->Location = System::Drawing::Point(232, 19);
+			this->radioButtonY->Location = System::Drawing::Point(209, 19);
 			this->radioButtonY->Name = L"radioButtonY";
 			this->radioButtonY->Size = System::Drawing::Size(46, 17);
 			this->radioButtonY->TabIndex = 2;
-			this->radioButtonY->TabStop = true;
 			this->radioButtonY->Text = L"Yaw";
 			this->radioButtonY->UseVisualStyleBackColor = true;
 			// 
@@ -235,7 +251,6 @@ namespace Project3WSA {
 			this->radioButtonP->Name = L"radioButtonP";
 			this->radioButtonP->Size = System::Drawing::Size(49, 17);
 			this->radioButtonP->TabIndex = 1;
-			this->radioButtonP->TabStop = true;
 			this->radioButtonP->Text = L"Pitch";
 			this->radioButtonP->UseVisualStyleBackColor = true;
 			// 
@@ -246,7 +261,6 @@ namespace Project3WSA {
 			this->radioButtonR->Name = L"radioButtonR";
 			this->radioButtonR->Size = System::Drawing::Size(43, 17);
 			this->radioButtonR->TabIndex = 0;
-			this->radioButtonR->TabStop = true;
 			this->radioButtonR->Text = L"Roll";
 			this->radioButtonR->UseVisualStyleBackColor = true;
 			// 
@@ -275,6 +289,14 @@ namespace Project3WSA {
 			// chartDATA
 			// 
 			this->chartDATA->BackColor = System::Drawing::Color::Transparent;
+			chartArea1->Area3DStyle->Inclination = 20;
+			chartArea1->Area3DStyle->IsClustered = true;
+			chartArea1->Area3DStyle->IsRightAngleAxes = false;
+			chartArea1->Area3DStyle->LightStyle = System::Windows::Forms::DataVisualization::Charting::LightStyle::Realistic;
+			chartArea1->Area3DStyle->PointDepth = 150;
+			chartArea1->Area3DStyle->PointGapDepth = 400;
+			chartArea1->Area3DStyle->Rotation = 10;
+			chartArea1->Area3DStyle->WallWidth = 10;
 			chartArea1->AxisX->ArrowStyle = System::Windows::Forms::DataVisualization::Charting::AxisArrowStyle::Triangle;
 			chartArea1->AxisX->IntervalAutoMode = System::Windows::Forms::DataVisualization::Charting::IntervalAutoMode::VariableCount;
 			chartArea1->AxisX->Title = L"Czas t [s]";
@@ -293,13 +315,28 @@ namespace Project3WSA {
 			this->chartDATA->Name = L"chartDATA";
 			series1->ChartArea = L"ChartArea";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series1->IsVisibleInLegend = false;
 			series1->Legend = L"Legend1";
-			series1->LegendText = L"Robot";
+			series1->LegendText = L"Roll";
 			series1->Name = L"Series1";
 			series1->XValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
 			series1->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
+			series2->ChartArea = L"ChartArea";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series2->Legend = L"Legend1";
+			series2->LegendText = L"Pitch";
+			series2->Name = L"Series2";
+			series2->XValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
+			series2->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
+			series3->ChartArea = L"ChartArea";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series3->Legend = L"Legend1";
+			series3->LegendText = L"Yaw";
+			series3->Name = L"Series3";
+			series3->XValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
+			series3->YValueType = System::Windows::Forms::DataVisualization::Charting::ChartValueType::Double;
 			this->chartDATA->Series->Add(series1);
+			this->chartDATA->Series->Add(series2);
+			this->chartDATA->Series->Add(series3);
 			this->chartDATA->Size = System::Drawing::Size(681, 295);
 			this->chartDATA->TabIndex = 0;
 			this->chartDATA->Text = L"Wykres";
@@ -321,6 +358,7 @@ namespace Project3WSA {
 			this->Controls->Add(this->groupBoxOY);
 			this->Controls->Add(this->buttonPrint);
 			this->Controls->Add(this->menuStrip);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->MainMenuStrip = this->menuStrip;
 			this->MaximizeBox = false;
 			this->Name = L"FormWSA";
@@ -337,11 +375,6 @@ namespace Project3WSA {
 
 		}
 #pragma endregion
-	
-	//private: double x, y, xc, yc;
-	//private: int n = 0;
-	//private: double column1, column2, column3;
-	//private: double compassAngle;
 
 	private: void PrintPlot();
 	private: void PrintCompass(double compassAngle);

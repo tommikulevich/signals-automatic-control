@@ -20,7 +20,7 @@ Project3WSA::FormWSA::FormWSA(void)
 
 void Project3WSA::FormWSA::PrintPlot()
 {
-	double x = 0, y = 0;
+	double x = 0, y1, y2, y3;
 	int n = 0;
 	double column1, column2, column3;
 	double compassAngle;
@@ -28,8 +28,13 @@ void Project3WSA::FormWSA::PrintPlot()
 	std::fstream DATA;
 	std::string line;
 
-	Series^ plot = chartDATA->Series[0];
-	plot->Points->Clear();
+	Series^ plot1 = chartDATA->Series[0];
+	Series^ plot2 = chartDATA->Series[1];
+	Series^ plot3 = chartDATA->Series[2];
+
+	plot1->Points->Clear();
+	plot2->Points->Clear();
+	plot3->Points->Clear();
 
 	DATA.open("outputCatapult01.log", std::ios::in);
 
@@ -44,30 +49,32 @@ void Project3WSA::FormWSA::PrintPlot()
 
 	while (std::getline(DATA, line)) {
 		std::istringstream iss(line);
-
-		chartDATA->Refresh();
 		
 		iss >> column1 >> column2 >> column3;
 
-		if (radioButtonR->Checked == true)
-			y = column1;
-		else if (radioButtonP->Checked == true)
-			y = column2;
-		else {
-			radioButtonY->Checked = true;
-			y = column3;
-		}
+		chartDATA->Refresh();
 
 		x += 0.04;
+		y1 = column1;
+		y2 = column2;
+		y3 = column3;
 
-		plot->Points->AddXY(x, y);
+		if (radioButtonR->Checked == true)
+			plot1->Points->AddXY(x, y1);
+		else if (radioButtonP->Checked == true) 
+			plot2->Points->AddXY(x, y2);
+		else if (radioButtonY->Checked == true)
+			plot3->Points->AddXY(x, y3);
+		else {
+			plot1->Points->AddXY(x, y1);
+			plot2->Points->AddXY(x, y2);
+			plot3->Points->AddXY(x, y3);
+		}
 
 		compassAngle = column3 * (M_PI / 180);
 
 		PrintCompass(compassAngle);
 		System::Threading::Thread::Sleep(40);
-
-		//predkosc rysowania!
 	}
 
 	DATA.close();
