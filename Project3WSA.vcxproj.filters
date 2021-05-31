@@ -24,4 +24,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="outputCatapult01.log">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="outputPendulumOrt02.log">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="outputRotateB01.log">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
