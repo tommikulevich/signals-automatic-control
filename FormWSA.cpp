@@ -20,12 +20,13 @@ Project3WSA::FormWSA::FormWSA(void)
 
 void Project3WSA::FormWSA::PrintPlot()
 {
+	int n;
 	double x = 0, y1, y2, y3;
-	int n = 0;
 	double column1, column2, column3;
 	double compassAngle;
 
 	std::fstream DATA;
+	std::string fileName;
 	std::string line;
 
 	Series^ plot1 = chartDATA->Series[0];
@@ -36,7 +37,20 @@ void Project3WSA::FormWSA::PrintPlot()
 	plot2->Points->Clear();
 	plot3->Points->Clear();
 
-	DATA.open("outputCatapult01.log", std::ios::in);
+	switch (comboBoxFiles->SelectedIndex)
+	{
+	case 0 :
+		fileName = "outputCatapult01.log";
+		break;
+	case 1 :
+		fileName = "outputRotateB01.log";
+		break;
+	case 2 :
+		fileName = "outputPendulumOrt02.log";
+		break;
+	}
+
+	DATA.open(fileName, std::ios::in);
 
 	if (textBoxSamples->Text != "") {
 		n = Convert::ToInt32(textBoxSamples->Text);

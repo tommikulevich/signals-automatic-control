@@ -4,6 +4,7 @@
 
 #include<fstream>
 #include<sstream>
+#include<string>
 #include<cmath>
 
 namespace Project3WSA {
@@ -60,6 +61,9 @@ namespace Project3WSA {
 	private: System::Windows::Forms::GroupBox^ groupBoxWykres;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartDATA;
 	private: System::Windows::Forms::RadioButton^ radioButtonAll;
+	private: System::Windows::Forms::Label^ labelFile;
+	private: System::Windows::Forms::ComboBox^ comboBoxFiles;
+
 
 
 	private:
@@ -99,6 +103,8 @@ namespace Project3WSA {
 			this->buttonPrint = (gcnew System::Windows::Forms::Button());
 			this->groupBoxWykres = (gcnew System::Windows::Forms::GroupBox());
 			this->chartDATA = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->labelFile = (gcnew System::Windows::Forms::Label());
+			this->comboBoxFiles = (gcnew System::Windows::Forms::ComboBox());
 			this->menuStrip->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxCompass))->BeginInit();
 			this->groupBoxOY->SuspendLayout();
@@ -185,7 +191,7 @@ namespace Project3WSA {
 			this->labelSamples->AutoSize = true;
 			this->labelSamples->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labelSamples->Location = System::Drawing::Point(278, 445);
+			this->labelSamples->Location = System::Drawing::Point(280, 476);
 			this->labelSamples->Name = L"labelSamples";
 			this->labelSamples->Size = System::Drawing::Size(158, 13);
 			this->labelSamples->TabIndex = 17;
@@ -193,7 +199,7 @@ namespace Project3WSA {
 			// 
 			// textBoxSamples
 			// 
-			this->textBoxSamples->Location = System::Drawing::Point(442, 442);
+			this->textBoxSamples->Location = System::Drawing::Point(444, 473);
 			this->textBoxSamples->Name = L"textBoxSamples";
 			this->textBoxSamples->Size = System::Drawing::Size(39, 20);
 			this->textBoxSamples->TabIndex = 16;
@@ -215,7 +221,7 @@ namespace Project3WSA {
 			this->groupBoxOY->Controls->Add(this->radioButtonY);
 			this->groupBoxOY->Controls->Add(this->radioButtonP);
 			this->groupBoxOY->Controls->Add(this->radioButtonR);
-			this->groupBoxOY->Location = System::Drawing::Point(196, 383);
+			this->groupBoxOY->Location = System::Drawing::Point(198, 414);
 			this->groupBoxOY->Name = L"groupBoxOY";
 			this->groupBoxOY->Size = System::Drawing::Size(375, 49);
 			this->groupBoxOY->TabIndex = 13;
@@ -266,7 +272,7 @@ namespace Project3WSA {
 			// 
 			// buttonPrint
 			// 
-			this->buttonPrint->Location = System::Drawing::Point(298, 354);
+			this->buttonPrint->Location = System::Drawing::Point(298, 356);
 			this->buttonPrint->Name = L"buttonPrint";
 			this->buttonPrint->Size = System::Drawing::Size(171, 23);
 			this->buttonPrint->TabIndex = 12;
@@ -341,11 +347,35 @@ namespace Project3WSA {
 			this->chartDATA->TabIndex = 0;
 			this->chartDATA->Text = L"Wykres";
 			// 
+			// labelFile
+			// 
+			this->labelFile->AutoSize = true;
+			this->labelFile->Location = System::Drawing::Point(268, 392);
+			this->labelFile->Name = L"labelFile";
+			this->labelFile->Size = System::Drawing::Size(74, 13);
+			this->labelFile->TabIndex = 24;
+			this->labelFile->Text = L"Wybrany plik: ";
+			// 
+			// comboBoxFiles
+			// 
+			this->comboBoxFiles->FormattingEnabled = true;
+			this->comboBoxFiles->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
+				L"outputCatapult01.log", L"outputRotateB01.log",
+					L"outputPendulumOrt02.log"
+			});
+			this->comboBoxFiles->Location = System::Drawing::Point(348, 389);
+			this->comboBoxFiles->Name = L"comboBoxFiles";
+			this->comboBoxFiles->Size = System::Drawing::Size(148, 21);
+			this->comboBoxFiles->TabIndex = 25;
+			this->comboBoxFiles->Text = L"outputCatapult01.log";
+			// 
 			// FormWSA
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(894, 503);
+			this->Controls->Add(this->comboBoxFiles);
+			this->Controls->Add(this->labelFile);
 			this->Controls->Add(this->groupBoxWykres);
 			this->Controls->Add(this->labelWest);
 			this->Controls->Add(this->labelEast);
