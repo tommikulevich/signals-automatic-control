@@ -3,8 +3,6 @@
 #define _USE_MATH_DEFINES
 
 #include<fstream>
-#include<sstream>
-#include<string>
 #include<cmath>
 
 namespace Project3WSA {
@@ -63,6 +61,8 @@ namespace Project3WSA {
 	private: System::Windows::Forms::RadioButton^ radioButtonAll;
 	private: System::Windows::Forms::Label^ labelFile;
 	private: System::Windows::Forms::ComboBox^ comboBoxFiles;
+	private: System::Windows::Forms::Timer^ timer;
+	private: System::ComponentModel::IContainer^ components;
 
 
 
@@ -70,7 +70,7 @@ namespace Project3WSA {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -79,6 +79,7 @@ namespace Project3WSA {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
@@ -105,6 +106,7 @@ namespace Project3WSA {
 			this->chartDATA = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->labelFile = (gcnew System::Windows::Forms::Label());
 			this->comboBoxFiles = (gcnew System::Windows::Forms::ComboBox());
+			this->timer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->menuStrip->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxCompass))->BeginInit();
 			this->groupBoxOY->SuspendLayout();
@@ -369,6 +371,11 @@ namespace Project3WSA {
 			this->comboBoxFiles->TabIndex = 25;
 			this->comboBoxFiles->Text = L"outputCatapult01.log";
 			// 
+			// timer
+			// 
+			this->timer->Interval = 40;
+			this->timer->Tick += gcnew System::EventHandler(this, &FormWSA::FormWSA_Update);
+			// 
 			// FormWSA
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -406,12 +413,27 @@ namespace Project3WSA {
 		}
 #pragma endregion
 
+	private: bool work;
+	private: int n;
+	private: double x, y1, y2, y3;
+	private: double xc, yc;
+	private: double compassAngle;
+	private: int plotNum;
+	private: Series^ plot1;
+	private: Series^ plot2;
+	private: Series^ plot3;
+
+	private: void InitializationComboBox();
+	private: void InitializationTextBox();
+	private: void InitializationGroupBox();
 	private: void PrintPlot();
-	private: void PrintCompass(double compassAngle);
+	private: void PrintCompass();
 
 	private: System::Void exitMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void aboutMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void buttonPrint_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void pictureBoxCompass_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+
+	private: void FormWSA_Update(Object^ object, EventArgs^ e);
 };
 }
