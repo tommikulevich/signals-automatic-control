@@ -117,7 +117,7 @@ void Project3WSA::FormWSA::PrintCompass()
 
 	pictureBoxCompass->Refresh();				// Odnowienie pola z kompasem - ponownie narysowaс wszystkie elementy
 
-	xc = 65 + 65 * sin(compassAngle);			// Obliczenie punktu okregu biorac pod uwage nietypowe polozenie ukladu wspolrzednych
+	xc = 65 + 65 * sin(compassAngle);			// Obliczanie punktu okregu biorac pod uwage nietypowe polozenie ukladu wspolrzednych
 	yc = 65 - 65 * cos(compassAngle);			
 	
 	needle->DrawLine(redPen, 65, 65, xc, yc);	// Rysowanie linii od srodka pictureBoxCompass do konkretnego punktu okregu

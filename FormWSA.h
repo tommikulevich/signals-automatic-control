@@ -413,13 +413,13 @@ namespace Project3WSA {
 		}
 #pragma endregion
 
-	private: bool work;
-	private: int n;
-	private: double x, y1, y2, y3;
-	private: double xc, yc;
-	private: double compassAngle;
-	private: int plotNum;
-	private: Series^ plot1;
+	private: bool work;							// Dzialanie programu (true - kontynuj, false - zakoncz)
+	private: int n;								// Liczba odrzuconych pierwszych probek (czyli ignorowanych linii w pliku)
+	private: double x, y1, y2, y3;				// Wspolrzedne dla wykresow
+	private: double xc, yc;						// Wspolrzedne dla kompasu
+	private: double compassAngle;				// Kat strzalki kompasu (wzgledem polnocy)
+	private: int plotNum;						// Numer wykresu (0 oznacza wszystkie wykresy)
+	private: Series^ plot1;						// Zmienne wykresow
 	private: Series^ plot2;
 	private: Series^ plot3;
 
