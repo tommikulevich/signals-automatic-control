@@ -29,6 +29,10 @@ Działanie programu można określić w kilku krokach:
 - Program wczytuje 1 linię z pliku oraz dodaje punkt do wykresu. Strzałka kompasu zmienia swój kierunek. To wszystko powtarza się co 1/25 sekundy (imitacja, że sensor podaje dane z częstotliwością 25 Hz). 
 - Gdy plik zostanie w pełni odczytany, wyświetli się odpowiedni komunikat i można ponownie zacząc wizualizację, ale np danych z innego pliku.
 
+Należy pamiętać o nietypowym układzie współrzędnych formy, pictureBox'ów i innych elementów.
+
+![Image alt](https://github.com/jwszol-classes/tp-2021-tommikulevich/raw/master/Image_PB.png)
+
 Warto zwrócić uwagę również na to, że tylko położenie **Yaw** wpływa na pozycję strzałki kompasu (patrz zdjęcie).
 
 ![Image alt](https://github.com/jwszol-classes/tp-2021-tommikulevich/raw/master/Image_RPY.jpg)
