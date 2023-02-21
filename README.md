@@ -1,44 +1,46 @@
-# 📈 Wizualizacja Sygnałów Automatyki 
-### 📜 Opis
-Przedstawiamy program umożliwiający wczytywanie, przetwarzanie i wizualizacje danych aktualnego położenia kątowego (roll, pitch, yaw) **robota mobilnego**! Oprócz rysowania *wykresu* położenia od czasu program rysuje prosty *kompas* i wyświetla aktualny kierunek robota (na początku ruchu robot był skierowany na północ). Istnieje również możliwość wyboru pliku z danymi, odrzucenia przerwszych *n* próbek oraz wyboru, co powinna reprezentować oś OY.
+# 📈 Visualization Of Automatic Control Signals: Reading the Angular Position
 
-> Program został zrealizowany w środowisku Visual Studio 2019 za pomocą Windows Forms (CRL Project with .NET Framework 4.7.2).
+> ☣ **Warning:** This project was created for educational purposes only. It may contain non-optimal or outdated solutions. 
 
-![Image alt](https://github.com/jwszol-classes/tp-2021-tommikulevich/raw/master/Screen0.png)
+> ☢ **Warning:** Comments in the code are in Polish
 
-### 🎯 Jak uruchomić?
-Aby uruchomić program i zapewnić poprawne jego działanie, należy:
-1. Upewnić się, że w Visual Studio 2019 jest zainstalowany **C++/CLI support for v142 build tools**.
-	Pomóc: https://docs.microsoft.com/en-us/cpp/dotnet/dotnet-programming-with-cpp-cli-visual-cpp?view=msvc-160
-2. Wejść w *Project->Project3WSA Properties->Configuration Properties->Linker->System* i zmienić wartość *SubSystem* na **Windows (/SUBSYSTEM:WINDOWS)**.
+### 📜 About
+Implemented program for loading, processing and visualizing data of the current **angular position (roll, pitch, yaw)** of the mobile robot. In addition to drawing a *chart* of the position from time to time, the program draws a simple *compass* and displays the current direction of the robot (at the beginning of the movement the robot was facing north). It is also possible to select a data file, reject the interrupted *n* samples, and choose what the OY axis should represent. Project was implemented in Visual Studio 2019 using Windows Forms (CRL Project with. Net Framework 4.7.2).
 
-![Image alt](https://github.com/jwszol-classes/tp-2021-tommikulevich/raw/master/Screen1.png)
+<img src="/_readmeImg/Screen0.png?raw=true 'Main window'" width="500">
 
-3. Wejść w *Project->Project3WSA Properties->Configuration Properties->Linker->Advanced* i zmienić wartość *Entry point* na **main**. 
+### 🎯 How to run?
+To run the program and ensure its correct operation, you should:
+1. Make sure that Visual Studio 2019 has **C++/CLI support for v142 build tools** installed.
+	Help: https://docs.microsoft.com/en-us/cpp/dotnet/dotnet-programming-with-cpp-cli-visual-cpp?view=msvc-160
+2. Go to *Project->Project3WSA Properties->Configuration Properties->Linker->System* and change the value of *SubSystem* to **Windows (/SUBSYSTEM: WINDOWS)**.
 
-![Image alt](https://github.com/jwszol-classes/tp-2021-tommikulevich/raw/master/Screen2.png)
+<img src="/_readmeImg/Screen1.png?raw=true 'Settings I'" width="500">
 
-4. W przypadku blędów przy uruchamianiu spróbować wejść w folder z projektem, otworzyć ustawienia pliku *FormWSA.resx* i zaznaczyć opcję **Unblock** (jeżeli taka opcja jest).  
+3. Go to *Project->Project3WSA Properties->Configuration Properties->Linker->Advanced* and change the value of *Entry point* to **main**.
 
-*Dodatkowo:* jeżeli przy pierwszym otwarzaniu projektu zamiast formy wyświetla się błąd, należy ponownie uruchomić Visual Studio.
+<img src="/_readmeImg/Screen2.png?raw=true 'Settings II'" width="500">
 
-### 💻 Zasady działania 
-Windows Forms jest bardzo przyjemnym narzędziem do robienia GUI. Mamy dużo różnych ustawień elementów okna, które niekoniecznie musimy ręcznie wpisywać w kod. 
-Działanie programu można określić w kilku krokach:
-- Start programu - wyświetlanie elementów okna, rysowanie kompasu bez strzałki.
-- Użytkownik wybiera różne opcje i naciska przycisk **Naszkocowac i pokazac kompas**.
-- Program przetwarza wybrane opcje.
-- Program wczytuje 1 linię z pliku oraz dodaje punkt do wykresu. Strzałka kompasu zmienia swój kierunek. To wszystko powtarza się co 1/25 sekundy (imitacja, że sensor podaje dane z częstotliwością 25 Hz). 
-- Gdy plik zostanie w pełni odczytany, wyświetli się odpowiedni komunikat i można ponownie zacząc wizualizację, ale np danych z innego pliku.
+4. If errors appear at startup, try to enter the folder with the project, open the settings file of file *FormWSA.resx* and select **Unblock** (if there is such an option).
 
-Należy pamiętać o nietypowym układzie współrzędnych formy, pictureBox'ów i innych elementów.
+*Additionally:* if you see an error when you first open the project instead of the form, you must restart Visual Studio.
 
-![Image alt](https://github.com/jwszol-classes/tp-2021-tommikulevich/raw/master/Image_PB.png)
+### 💻 How does it work?
+Windows Forms is a pretty nice tool for doing GUI. We have a lot of different settings for window elements, which we do not necessarily have to manually enter into the code. The operation of this program can be determined in several steps:
+- Start - display window elements, draw a compass without an arrow.
+- The user selects various options and presses **Naszkocowac i pokazac kompas**.
+- Program processes the selected options.
+- Program loads 1 line from the file and adds a point to the graph. The compass needle changes its direction. All this repeats every 1/25 second (imitation that the sensor gives data at a frequency of 25 Hz).
+- When the file is fully read, the appropriate message will be displayed and you can start visualizing again, for example, data from another file.
 
-Warto zwrócić uwagę również na to, że tylko położenie **Yaw** wpływa na pozycję strzałki kompasu (patrz zdjęcie).
+Keep in mind the unusual coordinate system of the form, pictureboxes and other elements.
 
-![Image alt](https://github.com/jwszol-classes/tp-2021-tommikulevich/raw/master/Image_RPY.jpg)
+<img src="/_readmeImg/Image_PB.png?raw=true 'PB'" width="500">
 
-### 💪 Autorzy
-- **Tomash Mikulevich** | 187720 | ACiR3  
-- **Igor Malkovskiy** | 187717 | ACiR3
+It is also worth noting that only the position **Yaw** affects the position of the compass arrow (see picture below).
+
+<img src="/_readmeImg/Image_RPY.jpg?raw=true 'PB'" width="500">
+
+### 💪 Authors
+- **Tomash Mikulevich** 
+- **Igor Malkovskiy**
