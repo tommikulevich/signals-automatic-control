@@ -13,15 +13,15 @@ Implemented program for loading, processing and visualizing data of the current 
 To run the program and ensure its correct operation, you should:
 1. Make sure that Visual Studio 2019 has **C++/CLI support for v142 build tools** installed.
 	Help: https://docs.microsoft.com/en-us/cpp/dotnet/dotnet-programming-with-cpp-cli-visual-cpp?view=msvc-160
-2. Go to *Project->Project4 Properties->Configuration Properties->Linker->System* and change the value of *SubSystem* to **Windows (/SUBSYSTEM: WINDOWS)**.
+2. Go to *Project->Project3WSA Properties->Configuration Properties->Linker->System* and change the value of *SubSystem* to **Windows (/SUBSYSTEM: WINDOWS)**.
 
 <img src="/_readmeImg/Screen1.png?raw=true 'Settings I'" width="500">
 
-3. Go to *Project->Project4 Properties->Configuration Properties->Linker->Advanced* and change the value of *Entry point* to **main**.
+3. Go to *Project->Project3WSA Properties->Configuration Properties->Linker->Advanced* and change the value of *Entry point* to **main**.
 
 <img src="/_readmeImg/Screen2.png?raw=true 'Settings II'" width="500">
 
-4. If errors appear at startup, try to enter the folder with the project, open the settings file of file *FormCrane.resx* and select **Unblock** (if there is such an option).
+4. If errors appear at startup, try to enter the folder with the project, open the settings file of file *FormWSA.resx* and select **Unblock** (if there is such an option).
 
 *Additionally:* if you see an error when you first open the project instead of the form, you must restart Visual Studio.
 
